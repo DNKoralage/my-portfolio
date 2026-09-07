@@ -6,6 +6,18 @@ media_folder: "assets"
 public_folder: "/assets"
 
 collections:
+  - name: "home"
+    label: "Home Page"
+    files:
+      - file: "content/home.json"
+        label: "Hero Section"
+        name: "home_hero"
+        fields:
+          - {label: "Logo Text", name: "logo_text", widget: "string"}
+          - {label: "Main Heading", name: "heading", widget: "string"}
+          - {label: "Sub Heading / Badge", name: "badge", widget: "string"}
+          - {label: "Hero Image", name: "hero_image", widget: "image", required: false}
+
   - name: "posts"
     label: "Blog Posts"
     folder: "content/posts"
