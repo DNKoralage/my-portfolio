@@ -6,17 +6,35 @@ media_folder: "assets"
 public_folder: "/assets"
 
 collections:
-  - name: "home"
-    label: "Home Page"
+  - name: "pages"
+    label: "Pages (Site Content)"
     files:
       - file: "content/home.json"
-        label: "Hero Section"
-        name: "home_hero"
+        label: "Home & Hero Section"
+        name: "home"
         fields:
           - {label: "Logo Text", name: "logo_text", widget: "string"}
           - {label: "Main Heading", name: "heading", widget: "string"}
           - {label: "Sub Heading / Badge", name: "badge", widget: "string"}
-          - {label: "Hero Image", name: "hero_image", widget: "image", required: false}
+
+      - file: "content/about.json"
+        label: "About Us Section"
+        name: "about"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string"}
+          - {label: "About Description", name: "description", widget: "markdown"}
+
+      - file: "content/services.json"
+        label: "Services Section"
+        name: "services"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string"}
+          - label: "Service List"
+            name: "service_items"
+            widget: "list"
+            fields:
+              - {label: "Service Name", name: "name", widget: "string"}
+              - {label: "Description", name: "desc", widget: "text"}
 
   - name: "posts"
     label: "Blog Posts"
