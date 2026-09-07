@@ -15,6 +15,7 @@ collections:
         fields:
           - {label: "Logo Text", name: "logo_text", widget: "string"}
           - {label: "Primary Theme Color", name: "primary_color", widget: "color"}
+          - {label: "Secondary Color", name: "secondary_color", widget: "color"}
 
       - file: "content/home.json"
         label: "Home Page Content"
@@ -25,3 +26,13 @@ collections:
           - {label: "Hero Image", name: "hero_image", widget: "image"}
           - {label: "Button Text", name: "btn_text", widget: "string"}
           - {label: "Button Link URL", name: "btn_link", widget: "string"}
+
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "content/posts"
+    create: true
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
