@@ -19,7 +19,7 @@
         .menu-section-title { font-size: 11px; text-transform: uppercase; color: #64748b; padding: 10px 10px 5px 10px; font-weight: bold; letter-spacing: 0.5px; }
         .menu li { padding: 10px 12px; border-radius: 6px; margin-bottom: 4px; cursor: pointer; transition: 0.2s; }
         .menu li.active, .menu li:hover { background: #3b82f6; color: #ffffff; }
-        .menu li a { text-decoration: none; color: inherit; display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 500; }
+        .menu li span { display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 500; }
         .badge { margin-left: auto; background: #ef4444; color: white; padding: 2px 6px; border-radius: 10px; font-size: 10px; }
 
         /* Main Content */
@@ -59,18 +59,30 @@
                 <h2>Constructive Panel</h2>
             </div>
             <ul class="menu">
-                <li class="active" onclick="switchTab('dashboard', this)"><a href="#"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
+                <li class="active" onclick="switchTab('dashboard', this)">
+                    <span><i class="fa-solid fa-gauge"></i> Dashboard</span>
+                </li>
                 
                 <div class="menu-section-title">Content & Portfolio</div>
-                <li onclick="switchTab('pages', this)"><a href="#"><i class="fa-solid fa-file-lines"></i> Pages & Sections <span class="badge">3</span></a></li>
-                <li onclick="switchTab('media', this)"><a href="#"><i class="fa-solid fa-photo-film"></i> Images & Media Links</a></li>
+                <li onclick="switchTab('pages', this)">
+                    <span><i class="fa-solid fa-file-lines"></i> Pages & Sections <span class="badge">3</span></span>
+                </li>
+                <li onclick="switchTab('media', this)">
+                    <span><i class="fa-solid fa-photo-film"></i> Images & Media Links</span>
+                </li>
 
                 <div class="menu-section-title">Appearance & Links</div>
-                <li onclick="switchTab('customizer', this)"><a href="#"><i class="fa-solid fa-palette"></i> Site Customizer</a></li>
-                <li onclick="switchTab('menus', this)"><a href="#"><i class="fa-solid fa-link"></i> Navigation & URL Links</a></li>
+                <li onclick="switchTab('customizer', this)">
+                    <span><i class="fa-solid fa-palette"></i> Site Customizer</span>
+                </li>
+                <li onclick="switchTab('menus', this)">
+                    <span><i class="fa-solid fa-link"></i> Navigation & URL Links</span>
+                </li>
 
                 <div class="menu-section-title">System</div>
-                <li onclick="switchTab('settings', this)"><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
+                <li onclick="switchTab('settings', this)">
+                    <span><i class="fa-solid fa-gear"></i> Settings</span>
+                </li>
             </ul>
         </aside>
 
@@ -102,11 +114,11 @@
                     <form onsubmit="event.preventDefault(); alert('Page texts updated successfully!');">
                         <div class="form-group">
                             <label>Hero Main Title Text</label>
-                            <input type="text" id="p-title" value="Build digital experiences that stand out">
+                            <input type="text" value="Build digital experiences that stand out">
                         </div>
                         <div class="form-group">
                             <label>Hero Subtitle / Badge Text</label>
-                            <input type="text" id="p-sub" value="FULL-STACK WEB DEVELOPER & SYSTEMS ENGINEER">
+                            <input type="text" value="FULL-STACK WEB DEVELOPER & SYSTEMS ENGINEER">
                         </div>
                         <div class="form-group">
                             <label>About Section Bio</label>
@@ -196,12 +208,15 @@
         function switchTab(tabId, element) {
             const panels = ['dashboard', 'pages', 'media', 'customizer', 'menus', 'settings'];
             panels.forEach(id => {
-                document.getElementById('tab-' + id).style.display = 'none';
+                const el = document.getElementById('tab-' + id);
+                if (el) el.style.display = 'none';
             });
-            document.getElementById('tab-' + tabId).style.display = 'block';
+            
+            const target = document.getElementById('tab-' + tabId);
+            if (target) target.style.display = 'block';
 
-            document.querySelectorAll('.menu li').forEach(li => li.classList.remove('active'));
-            element.classList.add('active');
+            document.querySelectorAll('.sidebar .menu li').forEach(li => li.classList.remove('active'));
+            if (element) element.classList.add('active');
         }
     </script>
 </body>
