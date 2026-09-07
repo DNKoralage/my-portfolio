@@ -16,11 +16,8 @@
                 <h2>Constructive</h2>
             </div>
             <ul class="menu">
-                <li class="active"><a href="#"><i class="fa-solid fa-house"></i> Dashboard <span class="badge">1</span></a></li>
-                <li><a href="#"><i class="fa-solid fa-file-lines"></i> Pages <span class="badge">3</span></a></li>
-                <li><a href="#"><i class="fa-solid fa-note-sticky"></i> Posts <span class="badge red">New</span></a></li>
-                <li><a href="#"><i class="fa-solid fa-folder"></i> Media Files <span class="badge">1</span></a></li>
-                <li><a href="#"><i class="fa-solid fa-gear"></i> Settings <span class="badge">1</span></a></li>
+                <li class="active" onclick="showDashboard()"><a href="#"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+                <li onclick="showEditor()"><a href="#"><i class="fa-solid fa-file-lines"></i> Home Customizer <span class="badge red">Edit</span></a></li>
             </ul>
         </aside>
 
@@ -38,25 +35,59 @@
                 </div>
             </header>
 
-            <section class="stats-overview">
+            <!-- Dashboard Home View -->
+            <section id="dashboard-view" class="stats-overview">
                 <div class="card-row">
-                    <div class="info-card">
+                    <div class="info-card" onclick="showEditor()" style="cursor: pointer;">
                         <div class="doc-icon blue"><i class="fa-regular fa-file"></i></div>
                         <div>
                             <h4>Home & Hero Customizer</h4>
-                            <p>Manage site titles, logos, and hero sections easily.</p>
-                        </div>
-                    </div>
-                    <div class="info-card">
-                        <div class="doc-icon orange"><i class="fa-regular fa-folder"></i></div>
-                        <div>
-                            <h4>Global Settings</h4>
-                            <p>Update theme colors and core configurations.</p>
+                            <p>Click here to edit site titles, text, images, and links.</p>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <!-- Editor View (Hidden by default, shown on click) -->
+            <section id="editor-view" class="stats-overview" style="display: none;">
+                <div class="editor-card">
+                    <h3>Edit Home Page Content</h3>
+                    <form id="content-form">
+                        <div class="form-group">
+                            <label>Main Heading</label>
+                            <input type="text" id="input-heading" value="Build digital experiences that stand out">
+                        </div>
+                        <div class="form-group">
+                            <label>Badge / Subheading</label>
+                            <input type="text" id="input-badge" value="FULL-STACK WEB DEVELOPER & SYSTEMS ENGINEER">
+                        </div>
+                        <div class="form-group">
+                            <label>Button Text</label>
+                            <input type="text" id="input-btn-text" value="Start a project">
+                        </div>
+                        <div class="form-group">
+                            <label>Button Link</label>
+                            <input type="text" id="input-btn-link" value="#contact">
+                        </div>
+                        <button type="button" class="save-btn" onclick="saveContent()">Save Changes</button>
+                    </form>
+                </div>
+            </section>
         </main>
     </div>
+
+    <script>
+        function showEditor() {
+            document.getElementById('dashboard-view').style.display = 'none';
+            document.getElementById('editor-view').style.display = 'block';
+        }
+        function showDashboard() {
+            document.getElementById('dashboard-view').style.display = 'block';
+            document.getElementById('editor-view').style.display = 'none';
+        }
+        function saveContent() {
+            alert('Changes saved successfully! (Connected to site live preview)');
+        }
+    </script>
 </body>
 </html>
