@@ -7,144 +7,170 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f8fafc; color: #334155; }
+        body { background-color: #f1f5f9; color: #1e293b; }
         .dashboard-container { display: flex; height: 100vh; overflow: hidden; }
-        .sidebar { width: 260px; background: #ffffff; border-right: 1px solid #e2e8f0; display: flex; flex-direction: column; padding: 20px; }
-        .logo-area { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: bold; color: #0f172a; margin-bottom: 30px; }
-        .logo-area i { color: #7c3aed; }
-        .menu { list-style: none; flex-grow: 1; }
-        .menu li { padding: 10px 12px; border-radius: 8px; margin-bottom: 5px; cursor: pointer; transition: 0.2s; }
-        .menu li.active, .menu li:hover { background: #f1f5f9; color: #7c3aed; }
-        .menu li a { text-decoration: none; color: inherit; display: flex; align-items: center; gap: 12px; font-size: 14px; }
-        .badge { margin-left: auto; background: #fee2e2; color: #ef4444; padding: 2px 8px; border-radius: 12px; font-size: 11px; }
-        .main-content { flex-grow: 1; display: flex; flex-direction: column; overflow-y: auto; }
-        .topbar { height: 70px; background: #ffffff; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between; padding: 0 30px; }
-        .search-box { display: flex; align-items: center; background: #f1f5f9; padding: 8px 15px; border-radius: 8px; width: 250px; gap: 10px; }
+        
+        /* WordPress Style Sidebar */
+        .sidebar { width: 260px; background: #1e1e2d; color: #a2a2b7; display: flex; flex-direction: column; padding: 20px 0; overflow-y: auto; }
+        .logo-area { display: flex; align-items: center; gap: 12px; padding: 0 20px 20px 20px; font-size: 16px; font-weight: bold; color: #ffffff; border-bottom: 1px solid #2b2b40; }
+        .logo-area i { color: #38bdf8; font-size: 20px; }
+        
+        .menu { list-style: none; padding: 15px 10px; }
+        .menu-section-title { font-size: 11px; text-transform: uppercase; color: #64748b; padding: 10px 10px 5px 10px; font-weight: bold; letter-spacing: 0.5px; }
+        .menu li { padding: 10px 12px; border-radius: 6px; margin-bottom: 4px; cursor: pointer; transition: 0.2s; }
+        .menu li.active, .menu li:hover { background: #3b82f6; color: #ffffff; }
+        .menu li a { text-decoration: none; color: inherit; display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 500; }
+        .badge { margin-left: auto; background: #ef4444; color: white; padding: 2px 6px; border-radius: 10px; font-size: 10px; }
+
+        /* Main Content */
+        .main-content { flex-grow: 1; display: flex; flex-direction: column; overflow-y: auto; background: #f8fafc; }
+        .topbar { height: 60px; background: #ffffff; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between; padding: 0 30px; }
+        .search-box { display: flex; align-items: center; background: #f1f5f9; padding: 6px 14px; border-radius: 6px; width: 240px; gap: 10px; font-size: 13px; }
         .search-box input { border: none; background: transparent; outline: none; width: 100%; }
-        .user-profile { display: flex; align-items: center; gap: 15px; }
-        .user-profile img { width: 35px; height: 35px; border-radius: 50%; }
-        .stats-overview { padding: 30px; }
-        .card-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        .info-card { background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; display: flex; gap: 15px; cursor: pointer; }
-        .doc-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; }
-        .doc-icon.blue { background: #3b82f6; }
-        .doc-icon.orange { background: #f97316; }
-        .info-card h4 { font-size: 14px; margin-bottom: 5px; }
-        .info-card p { font-size: 11px; color: #64748b; }
-        .editor-card { background: #ffffff; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; max-width: 700px; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px; color: #475569; }
-        .form-group input, .form-group select { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 6px; outline: none; font-size: 14px; }
-        .form-row { display: flex; gap: 15px; }
-        .form-row .form-group { flex: 1; }
-        .save-btn { background: #7c3aed; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; }
-        .save-btn:hover { background: #6d28d9; }
+        .user-profile { display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 600; }
+        .user-profile img { width: 32px; height: 32px; border-radius: 50%; }
+
+        .content-body { padding: 30px; }
+        .panel-box { background: #ffffff; padding: 25px; border-radius: 8px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .panel-box h2 { font-size: 18px; margin-bottom: 15px; color: #0f172a; }
+        
+        /* Form Inputs */
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 6px; color: #475569; text-transform: uppercase; }
+        .form-group input, .form-group textarea { width: 100%; padding: 9px 12px; border: 1px solid #cbd5e1; border-radius: 6px; outline: none; font-size: 13px; }
+        .form-group textarea { height: 90px; resize: vertical; }
+        .btn-primary { background: #3b82f6; color: white; border: none; padding: 10px 18px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; }
+        .btn-primary:hover { background: #2563eb; }
     </style>
 </head>
 <body>
     <div class="dashboard-container">
-        <!-- Sidebar -->
+        <!-- Sidebar (WordPress Style Options) -->
         <aside class="sidebar">
             <div class="logo-area">
                 <i class="fa-solid fa-cube"></i>
-                <h2>Constructive</h2>
+                <h2>Koralage Panel</h2>
             </div>
             <ul class="menu">
-                <li class="active" onclick="showDashboard()"><a href="#"><i class="fa-solid fa-house"></i> Dashboard</a></li>
-                <li onclick="showEditor()"><a href="#"><i class="fa-solid fa-file-lines"></i> Site Customizer <span class="badge">Edit</span></a></li>
+                <li class="active" onclick="switchTab('dashboard', this)"><a href="#"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
+                
+                <div class="menu-section-title">Content Management</div>
+                <li onclick="switchTab('posts', this)"><a href="#"><i class="fa-solid fa-thumbtack"></i> Posts <span class="badge">5</span></a></li>
+                <li onclick="switchTab('pages', this)"><a href="#"><i class="fa-solid fa-file-lines"></i> Pages <span class="badge">3</span></a></li>
+                <li onclick="switchTab('media', this)"><a href="#"><i class="fa-solid fa-photo-film"></i> Media Library</a></li>
+
+                <div class="menu-section-title">Appearance & Layout</div>
+                <li onclick="switchTab('customizer', this)"><a href="#"><i class="fa-solid fa-palette"></i> Site Customizer</a></li>
+                <li onclick="switchTab('menus', this)"><a href="#"><i class="fa-solid fa-bars"></i> Menus & Links</a></li>
+
+                <div class="menu-section-title">System</div>
+                <li onclick="switchTab('settings', this)"><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
             </ul>
         </aside>
 
-        <!-- Main Content -->
+        <!-- Main Content Area -->
         <main class="main-content">
             <header class="topbar">
                 <div class="search-box">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search">
+                    <input type="text" placeholder="Search dashboard...">
                 </div>
                 <div class="user-profile">
-                    <i class="fa-regular fa-bell"></i>
+                    <i class="fa-regular fa-bell" style="cursor: pointer; color: #64748b;"></i>
                     <img src="https://i.pravatar.cc/40?img=3" alt="Admin">
                     <span>Devnith K.</span>
                 </div>
             </header>
 
-            <!-- Dashboard Home View -->
-            <section id="dashboard-view" class="stats-overview">
-                <div class="card-row">
-                    <div class="info-card" onclick="showEditor()">
-                        <div class="doc-icon blue"><i class="fa-regular fa-file"></i></div>
-                        <div>
-                            <h4>Full Site Customizer</h4>
-                            <p>Edit Texts, Images, Links, and Colors in real-time.</p>
+            <div class="content-body">
+                <!-- Dashboard Home -->
+                <div id="tab-dashboard" class="panel-box">
+                    <h2>Welcome to Constructive Dashboard</h2>
+                    <p style="color: #64748b; font-size: 13px; margin-bottom: 20px;">Manage your entire static portfolio site seamlessly using WordPress-like tools.</p>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                        <div style="background: #f8fafc; padding: 15px; border-radius: 6px; border: 1px solid #e2e8f0;">
+                            <h4 style="font-size: 14px; color: #3b82f6;">Total Pages</h4>
+                            <p style="font-size: 20px; font-weight: bold; margin-top: 5px;">3</p>
+                        </div>
+                        <div style="background: #f8fafc; padding: 15px; border-radius: 6px; border: 1px solid #e2e8f0;">
+                            <h4 style="font-size: 14px; color: #10b981;">Active Media</h4>
+                            <p style="font-size: 20px; font-weight: bold; margin-top: 5px;">12 Files</p>
+                        </div>
+                        <div style="background: #f8fafc; padding: 15px; border-radius: 6px; border: 1px solid #e2e8f0;">
+                            <h4 style="font-size: 14px; color: #f59e0b;">Theme Status</h4>
+                            <p style="font-size: 14px; font-weight: bold; margin-top: 5px; color: #10b981;">Connected</p>
                         </div>
                     </div>
                 </div>
-            </section>
 
-            <!-- Editor View (Forms for Texts, Images, Links, Colors) -->
-            <section id="editor-view" class="stats-overview" style="display: none;">
-                <div class="editor-card">
-                    <h3>WordPress-Style Live Customizer</h3>
+                <!-- Site Customizer Panel -->
+                <div id="tab-customizer" class="panel-box" style="display: none;">
+                    <h2>Site Customizer (Theme Options)</h2>
                     <br>
-                    <form id="content-form">
-                        <!-- Colors & Logo -->
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Logo Text</label>
-                                <input type="text" id="input-logo" value="Devnith Koralage">
-                            </div>
-                            <div class="form-group">
-                                <label>Theme Primary Color</label>
-                                <input type="color" id="input-color" value="#7c3aed" style="height: 42px; padding: 2px;">
-                            </div>
-                        </div>
-
-                        <!-- Headings & Badges -->
+                    <form onsubmit="event.preventDefault(); alert('Settings saved successfully!');">
                         <div class="form-group">
-                            <label>Main Heading (Text)</label>
-                            <input type="text" id="input-heading" value="Build digital experiences that stand out">
+                            <label>Site Title / Brand Name</label>
+                            <input type="text" value="Devnith Koralage">
                         </div>
                         <div class="form-group">
-                            <label>Badge / Subheading (Text)</label>
-                            <input type="text" id="input-badge" value="FULL-STACK WEB DEVELOPER & SYSTEMS ENGINEER">
+                            <label>Main Hero Heading</label>
+                            <input type="text" value="Build digital experiences that stand out">
                         </div>
-
-                        <!-- Images & Links -->
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Hero Image URL (Image)</label>
-                                <input type="text" id="input-image" value="/assets/hero.jpg">
-                            </div>
-                            <div class="form-group">
-                                <label>Button Link (URL)</label>
-                                <input type="text" id="input-link" value="#contact">
-                            </div>
-                        </div>
-
                         <div class="form-group">
-                            <label>Button Text</label>
-                            <input type="text" id="input-btn" value="Start a project">
+                            <label>Primary Theme Color</label>
+                            <input type="color" value="#3b82f6" style="height: 40px; padding: 2px;">
                         </div>
-
-                        <button type="button" class="save-btn" onclick="saveChanges()">Publish Changes</button>
+                        <button type="submit" class="btn-primary">Save Changes</button>
                     </form>
                 </div>
-            </section>
+
+                <!-- Pages Panel -->
+                <div id="tab-pages" class="panel-box" style="display: none;">
+                    <h2>Pages Manager</h2>
+                    <p style="color: #64748b; font-size: 13px; margin-top: 5px;">Manage portfolio sections: Home, About, Services, Contact.</p>
+                </div>
+
+                <!-- Posts Panel -->
+                <div id="tab-posts" class="panel-box" style="display: none;">
+                    <h2>Blog / Portfolio Posts</h2>
+                    <p style="color: #64748b; font-size: 13px; margin-top: 5px;">Create and manage projects or articles.</p>
+                </div>
+
+                <!-- Media Panel -->
+                <div id="tab-media" class="panel-box" style="display: none;">
+                    <h2>Media Library</h2>
+                    <p style="color: #64748b; font-size: 13px; margin-top: 5px;">Upload and manage images and assets.</p>
+                </div>
+
+                <!-- Menus Panel -->
+                <div id="tab-menus" class="panel-box" style="display: none;">
+                    <h2>Navigation Menus & Links</h2>
+                    <p style="color: #64748b; font-size: 13px; margin-top: 5px;">Configure header navigation links and destination URLs.</p>
+                </div>
+
+                <!-- Settings Panel -->
+                <div id="tab-settings" class="panel-box" style="display: none;">
+                    <h2>Global Settings</h2>
+                    <p style="color: #64748b; font-size: 13px; margin-top: 5px;">Configure general system options and repository hooks.</p>
+                </div>
+            </div>
         </main>
     </div>
 
     <script>
-        function showEditor() {
-            document.getElementById('dashboard-view').style.display = 'none';
-            document.getElementById('editor-view').style.display = 'block';
-        }
-        function showDashboard() {
-            document.getElementById('dashboard-view').style.display = 'block';
-            document.getElementById('editor-view').style.display = 'none';
-        }
-        function saveChanges() {
-            alert('All changes (Texts, Images, Links, Colors) have been saved successfully!');
+        function switchTab(tabId, element) {
+            // Hide all panels
+            const panels = ['dashboard', 'customizer', 'pages', 'posts', 'media', 'menus', 'settings'];
+            panels.forEach(id => {
+                document.getElementById('tab-' + id).style.display = 'none';
+            });
+            
+            // Show selected panel
+            document.getElementById('tab-' + tabId).style.display = 'block';
+
+            // Update active menu class
+            document.querySelectorAll('.menu li').forEach(li => li.classList.remove('active'));
+            element.classList.add('active');
         }
     </script>
 </body>
