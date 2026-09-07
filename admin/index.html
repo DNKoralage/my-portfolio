@@ -236,3 +236,16 @@
     </script>
 </body>
 </html>
+<script>
+    function showEditor() {
+        document.getElementById('dashboard-view').style.display = 'none';
+        document.getElementById('editor-view').style.display = 'block';
+    }
+    function showDashboard() {
+        document.getElementById('dashboard-view').style.display = 'block';
+        document.getElementById('editor-view').style.display = 'none';
+    }
+    function saveContent() {
+        alert('Changes saved successfully!');
+    }
+</script>
