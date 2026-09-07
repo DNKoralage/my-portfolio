@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Constructive - Admin Dashboard</title>
     <link rel="stylesheet" href="admin-style.css">
-    <!-- FontAwesome Icons for sidebar and UI icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="dashboard-container">
-        <!-- Sidebar Navigation -->
+        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="logo-area">
                 <i class="fa-solid fa-cube"></i>
@@ -21,88 +20,38 @@
                 <li><a href="#"><i class="fa-solid fa-file-lines"></i> Pages <span class="badge">3</span></a></li>
                 <li><a href="#"><i class="fa-solid fa-note-sticky"></i> Posts <span class="badge red">New</span></a></li>
                 <li><a href="#"><i class="fa-solid fa-folder"></i> Media Files <span class="badge">1</span></a></li>
-                <li><a href="#"><i class="fa-solid fa-list"></i> Categories <span class="badge">1</span></a></li>
-                <li><a href="#"><i class="fa-solid fa-tags"></i> Tags <span class="badge">1</span></a></li>
-                <li><a href="#"><i class="fa-solid fa-comments"></i> Comments <span class="badge">1</span></a></li>
                 <li><a href="#"><i class="fa-solid fa-gear"></i> Settings <span class="badge">1</span></a></li>
             </ul>
-            <div class="users-section">
-                <h4>Users <span class="badge">1</span></h4>
-                <div class="user-item"><img src="https://i.pravatar.cc/30?img=1" alt=""> Bess Alkins <span class="dot green"></span></div>
-                <div class="user-item"><img src="https://i.pravatar.cc/30?img=2" alt=""> Tahsan K <span class="dot orange"></span></div>
-            </div>
         </aside>
 
-        <!-- Main Content Area -->
+        <!-- Main Content -->
         <main class="main-content">
-            <!-- Top Navigation Bar -->
             <header class="topbar">
                 <div class="search-box">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text" placeholder="Search">
                 </div>
-                <div class="nav-links-top">
-                    <span class="active-tab">Dashboard</span>
-                    <span>Pages</span>
-                    <span>Posts</span>
-                    <span>Files</span>
-                    <span>Users</span>
-                </div>
                 <div class="user-profile">
                     <i class="fa-regular fa-bell"></i>
-                    <img src="https://i.pravatar.cc/40?img=3" alt="Alesia">
-                    <span>Alesia K.</span>
+                    <img src="https://i.pravatar.cc/40?img=3" alt="Admin">
+                    <span>Devnith K.</span>
                 </div>
             </header>
 
-            <!-- Dashboard Cards & Stats Section -->
             <section class="stats-overview">
                 <div class="card-row">
                     <div class="info-card">
                         <div class="doc-icon blue"><i class="fa-regular fa-file"></i></div>
                         <div>
-                            <h4>About Page Company</h4>
-                            <p>You might remember the Dell computer commercials in which a youth...</p>
+                            <h4>Home & Hero Customizer</h4>
+                            <p>Manage site titles, logos, and hero sections easily.</p>
                         </div>
                     </div>
                     <div class="info-card">
                         <div class="doc-icon orange"><i class="fa-regular fa-folder"></i></div>
                         <div>
-                            <h4>Category<Templates></h4>
-                            <p>You might remember the Dell computer commercials in which a youth...</p>
-                        </div>
-                    </div>
-                    <div class="info-card">
-                        <div class="doc-icon red"><i class="fa-regular fa-file-lines"></i></div>
-                        <div>
-                            <h4>New User Alberta Colon</h4>
-                            <p>You might remember the Dell computer commercials in which a youth...</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Charts & Graphs Section -->
-                <div class="analytics-grid">
-                    <div class="chart-card large">
-                        <div class="chart-header">
-                            <h3>User Stat</h3>
-                            <div class="tabs"><span class="active">Monthly</span></div>
-                        </div>
-                        <div class="chart-body">
-                            <!-- Simulated Chart Line using CSS/SVG -->
-                            <div class="stat-badge-pop"><i class="fa-solid fa-user"></i> 1450</div>
-                            <svg viewBox="0 0 500 150" class="line-chart">
-                                <path d="M0,100 Q50,40 100,80 T200,60 T300,120 T400,30 T500,90" fill="none" stroke="#7c3aed" stroke-width="3"/>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div class="chart-card small">
-                        <h3>Statistics</h3>
-                        <div class="stat-bars">
-                            <div class="bar-group"><span>Visitors</span><b>10113</b><div class="bar purple" style="height: 80%;"></div></div>
-                            <div class="bar-group"><span>Subscriber</span><b>1123</b><div class="bar red" style="height: 60%;"></div></div>
-                            <div class="bar-group"><span>Contributor</span><b>1100</b><div class="bar orange" style="height: 50%;"></div></div>
+                            <h4>Global Settings</h4>
+                            <p>Update theme colors and core configurations.</p>
                         </div>
                     </div>
                 </div>
