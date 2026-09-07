@@ -1,548 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Devnith Koralage | Full-Stack Web Developer & Systems Engineer</title>
-  <meta name="description"
-    content="Full-stack web developer, systems engineer, and multimedia producer bridging the gap between robust technology and cinematic digital storytelling.">
-  <!-- Google Fonts: Plus Jakarta Sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devnith Koralage | Portfolio</title>
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Netlify Identity Widget (Login / Recovery ටෝකන් වැඩ කරන්න අත්‍යවශ්‍යයි) -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
-
 <body>
 
-  <!-- Background Scroll Animation Canvas -->
-  <canvas id="animationCanvas"></canvas>
-  <div class="canvas-overlay"></div>
-
-  <!-- Minimal Preloader Bar -->
-  <div id="loader" class="loader">
-    <div class="loader-bar" id="loaderBar"></div>
-  </div>
-
-  <!-- Main Website Content Container -->
-  <div class="content-wrapper">
-
-    <!-- Navigation Bar -->
-    <header class="navbar">
-      <div class="logo">
-        <svg class="logo-icon" width="28" height="28" viewBox="0 0 24 24" fill="none">
-          <rect x="2" y="3" width="9" height="18" rx="2" fill="#ff4d00" />
-          <rect x="13" y="3" width="9" height="8" rx="2" fill="#ffffff" />
-          <rect x="13" y="13" width="6" height="8" rx="2" fill="rgba(255,255,255,0.7)" />
-        </svg>
-        <span class="logo-text">Devnith Koralage</span>
-      </div>
-
-      <nav class="nav-pill">
-        <a href="#hero" class="nav-item active">Home</a>
-        <a href="#about" class="nav-item">About us</a>
-        <a href="#services" class="nav-item">Services</a>
-        <a href="#cases" class="nav-item">Experience</a>
-        <a href="#contact" class="nav-item">Skills & Contact</a>
-      </nav>
-
-      <div class="social-icons">
-        <a href="https://youtube.com" target="_blank" class="social-btn" aria-label="YouTube">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path
-              d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" />
-          </svg>
-        </a>
-        <a href="https://linkedin.com" target="_blank" class="social-btn" aria-label="LinkedIn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-            <rect x="2" y="9" width="4" height="12" />
-            <circle cx="4" cy="4" r="2" />
-          </svg>
-        </a>
-        <a href="https://instagram.com" target="_blank" class="social-btn" aria-label="Instagram">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-          </svg>
-        </a>
-      </div>
+    <!-- Header / Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Devnith Koralage</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Skills & Contact</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </nav>
     </header>
 
-    <!-- SECTION 1: HERO -->
-    <section id="hero" class="hero-section">
-      <div class="hero-grid">
+    <!-- Main Content Section -->
+    <main id="home">
+        <section class="hero">
+            <div class="hero-badge">FULL-STACK WEB DEVELOPER & SYSTEMS ENGINEER</div>
+            <h1>Build digital</h1>
+        </section>
+    </main>
 
-        <!-- Hero Left Column -->
-        <div class="hero-left">
-          <div class="tag-badge">
-            <span class="tag-text">Full-Stack Web Developer & Systems Engineer</span>
-          </div>
+    <!-- Footer / Widgets -->
+    <footer>
+        <!-- ඔයාගේ අවශ්‍යතාවය අනුව මෙතැනට Instagram Widget Embed එක දාගන්න පුළුවන් -->
+    </footer>
 
-          <h1 class="hero-title">
-            Build digital experiences<br>that stand out
-          </h1>
+    <!-- JavaScript Files -->
+    <script src="script.js"></script>
 
-          <p class="hero-subtitle">
-            Full-stack web developer, systems engineer, and multimedia producer bridging the gap between robust
-            technology and cinematic digital storytelling.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">
-              Start a project
-              <span class="btn-arrow-circle">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <line x1="7" y1="17" x2="17" y2="7" />
-                  <polyline points="7 7 17 7 17 17" />
-                </svg>
-              </span>
-            </a>
-          </div>
-
-          <!-- Hero Metrics Cards -->
-          <div class="hero-metrics">
-            <div class="metric-card metric-light">
-              <div class="metric-number">20+</div>
-              <div class="metric-label">Websites & Platforms</div>
-              <p class="metric-desc">Indusara Media Network, RadioEka, and digital ecosystems</p>
-            </div>
-
-            <div class="metric-card metric-orange">
-              <div class="metric-number">98%</div>
-              <div class="metric-label">Technical Uptime</div>
-              <p class="metric-desc">Reliable back-end management and streaming architecture</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Hero Right Column -->
-        <div class="hero-right">
-
-          <!-- Successful Projects Badge -->
-          <div class="projects-badge">
-            <div class="avatar-stack">
-              <img src="assets/creative-director.jpg" alt="Team avatar" class="avatar-img">
-              <img src="assets/about-portrait.jpg" alt="Team avatar" class="avatar-img">
-              <div class="avatar-img avatar-placeholder">24/7</div>
-            </div>
-            <span class="badge-text">Pioneering 24/7 Live Stream Automation</span>
-          </div>
-
-          <!-- Floating Creative Director Glass Card -->
-          <div class="hero-floating-card">
-            <div class="status-pill">
-              <span class="status-dot"></span>
-              <span class="status-text">Available for new projects</span>
-            </div>
-
-            <div class="director-img-wrap">
-              <img src="assets/creative-director.jpg" alt="Devnith Koralage" class="director-img">
-            </div>
-
-            <div class="director-info">
-              <span class="director-email">devnith@luminex.lk</span>
-              <h3 class="director-role">Systems Engineer & Creator</h3>
-              <p class="director-sub">St. John's College, Nugegoda • Founder of Luminex</p>
-            </div>
-
-            <a href="#contact" class="btn btn-card-action">
-              Get Started
-              <span class="btn-arrow-circle">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <line x1="7" y1="17" x2="17" y2="7" />
-                  <polyline points="7 7 17 7 17 17" />
-                </svg>
-              </span>
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 2: ABOUT US -->
-    <section id="about" class="about-section">
-
-      <!-- Section Header -->
-      <div class="about-header-grid">
-        <div class="about-heading-col">
-          <div class="tag-pill-btn">
-            <span class="tag-circle"></span>
-            <span>About me</span>
-          </div>
-          <h2 class="section-title">
-            Passionate technologist <span class="highlight-orange">and creative director</span>
-          </h2>
-        </div>
-
-        <div class="about-desc-col">
-          <p class="lead-text">
-            Currently pursuing G.C.E. Advanced Level (A/L) studies at St. John's College, Nugegoda, serving as a
-            distinguished student leader, system engineer, and award-winning multimedia creator.
-          </p>
-          <div class="about-sub-row">
-            <p class="sub-lead-text">
-              Combining deep technical proficiency in full-stack web development and broadcast engineering with
-              cinematic artistry, directing, and music production.
-            </p>
-            <div class="avatar-stack-inline">
-              <img src="assets/about-portrait.jpg" alt="Devnith" class="avatar-sm">
-              <img src="assets/creative-director.jpg" alt="Devnith" class="avatar-sm">
-              <div class="avatar-sm avatar-accent">A/L</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- About Bento Grid -->
-      <div class="about-bento-grid">
-
-        <!-- Left Tall Image Card -->
-        <div class="bento-tall-card">
-          <img src="assets/about-portrait.jpg" alt="Devnith Koralage portfolio portrait" class="bento-full-img">
-        </div>
-
-        <!-- Right Bento Column -->
-        <div class="bento-right-col">
-
-          <!-- Top Row of Cards -->
-          <div class="bento-cards-row">
-
-            <!-- Trusted Partners Card -->
-            <div class="bento-card bento-partners-card">
-              <div class="bento-card-top">
-                <div class="bento-number">20+</div>
-                <div class="bento-label">Managed Platforms</div>
-                <p class="bento-sub">Active websites & broadcast networks under infrastructure</p>
-              </div>
-
-              <!-- Brand Logos Grid -->
-              <div class="partners-logo-grid">
-                <div class="partner-logo">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <rect width="8" height="8" rx="1" />
-                    <rect x="12" width="8" height="8" rx="1" />
-                    <rect y="12" width="8" height="8" rx="1" />
-                    <rect x="12" y="12" width="8" height="8" rx="1" />
-                  </svg>
-                  <span>Indusara TV</span>
-                </div>
-                <div class="partner-logo">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                  </svg>
-                  <span>RadioEka</span>
-                </div>
-                <div class="partner-logo">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="12" cy="12" r="10" />
-                  </svg>
-                  <span>Nysco TV</span>
-                </div>
-                <div class="partner-logo">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <rect x="3" y="3" width="18" height="18" rx="4" />
-                  </svg>
-                  <span>Nysco Radio</span>
-                </div>
-                <div class="partner-logo">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <polygon points="12 2 2 22 22 22" />
-                  </svg>
-                  <span>Luminex</span>
-                </div>
-                <div class="partner-logo">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="6" cy="6" r="4" />
-                    <circle cx="18" cy="6" r="4" />
-                    <circle cx="6" cy="18" r="4" />
-                    <circle cx="18" cy="18" r="4" />
-                  </svg>
-                  <span>St. John's</span>
-                </div>
-              </div>
-
-              <div class="bento-card-footer">
-                <a href="#contact" class="btn btn-card-orange">
-                  Get Started
-                  <span class="btn-arrow-circle">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="2.5">
-                      <line x1="7" y1="17" x2="17" y2="7" />
-                      <polyline points="7 7 17 7 17 17" />
-                    </svg>
-                  </span>
-                </a>
-              </div>
-            </div>
-
-            <!-- Stat Image Card -->
-            <div class="bento-card bento-stat-image-card">
-              <img src="assets/stat-portrait.jpg" alt="Creative media studio" class="card-bg-img">
-              <div class="stat-card-content">
-                <div class="stat-num-lg">4+</div>
-                <div class="stat-title-lg">Student Leadership Roles</div>
-                <p class="stat-desc-lg">President of ICT, Media, Photo Societies & Leo Club</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SECTION 3: SERVICES -->
-    <section id="services" class="services-section">
-
-      <!-- Services Section Header -->
-      <div class="services-header">
-        <div class="tag-pill-btn">
-          <span class="tag-circle"></span>
-          <span>Services</span>
-        </div>
-
-        <h2 class="section-title services-title">
-          <span class="highlight-orange">What I do</span> — engineering & media solutions
-        </h2>
-      </div>
-
-      <!-- Services Content & Bento Layout -->
-      <div class="services-layout">
-
-        <!-- Left Sidebar / Intro Info -->
-        <div class="services-sidebar">
-          <div class="services-intro-card">
-            <h4 class="intro-tagline">Robust tech meets<br>cinematic vision</h4>
-            <p class="intro-description">
-              From web development and backend infrastructure to automated streaming servers and multimedia production,
-              I offer tailored digital execution for modern broadcasting and brand identity.
-            </p>
-            <a href="#cases" class="btn btn-outline-white">
-              View experience
-              <span class="btn-arrow-circle">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <line x1="7" y1="17" x2="17" y2="7" />
-                  <polyline points="7 7 17 7 17 17" />
-                </svg>
-              </span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Right Side: 5 Bento Service Cards -->
-        <div class="services-bento-grid">
-
-          <!-- Card 1: Full-Stack Web Development -->
-          <div class="service-card card-light">
-            <div class="service-card-header">
-              <h3 class="service-name">Full-Stack<br>Web Dev</h3>
-              <div class="service-arrow-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <line x1="7" y1="17" x2="17" y2="7" />
-                  <polyline points="7 7 17 7 17 17" />
-                </svg>
-              </div>
-            </div>
-            <p class="service-desc">
-              Building scalable web solutions and managing 20+ active websites like radioeka.lk.
-            </p>
-          </div>
-
-          <!-- Card 2: Systems & Streaming Server Architecture -->
-          <div class="service-card card-orange">
-            <div class="service-card-header">
-              <h3 class="service-name">Streaming<br>Architecture</h3>
-              <div class="service-arrow-btn arrow-white">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <line x1="7" y1="17" x2="17" y2="7" />
-                  <polyline points="7 7 17 7 17 17" />
-                </svg>
-              </div>
-            </div>
-            <p class="service-desc">
-              TV & radio streaming server installation, backend maintenance, and 24/7 stream automation.
-            </p>
-          </div>
-
-          <!-- Card 3: Multimedia Production & Cinematography -->
-          <div class="service-card card-light">
-            <div class="service-card-header">
-              <h3 class="service-name">Cinematography<br>& Direction</h3>
-              <div class="service-arrow-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <line x1="7" y1="17" x2="17" y2="7" />
-                  <polyline points="7 7 17 7 17 17" />
-                </svg>
-              </div>
-            </div>
-            <p class="service-desc">
-              Scriptwriting, directing, DSLR photography, and advanced video editing (Premiere, DaVinci).
-            </p>
-          </div>
-
-          <!-- Card 4: Music Production & Audio Engineering -->
-          <div class="service-card card-light">
-            <div class="service-card-header">
-              <h3 class="service-name">Music Production<br>& Audio</h3>
-              <div class="service-arrow-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <line x1="7" y1="17" x2="17" y2="7" />
-                  <polyline points="7 7 17 7 17 17" />
-                </svg>
-              </div>
-            </div>
-            <p class="service-desc">
-              Lyric writing, music composition, mixing, and mastering using FL Studio and Cubase.
-            </p>
-          </div>
-
-          <!-- Card 5: Leadership & Operations -->
-          <div class="service-card card-orange">
-            <div class="service-card-header">
-              <h3 class="service-name">Technical<br>Operations</h3>
-              <div class="service-arrow-btn arrow-white">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <line x1="7" y1="17" x2="17" y2="7" />
-                  <polyline points="7 7 17 7 17 17" />
-                </svg>
-              </div>
-            </div>
-            <p class="service-desc">
-              Cross-functional collaboration, broadcast systems engineering, and student leadership.
-            </p>
-          </div>
-
-        </div>
-      </div>
-
-    </section>
-
-    <!-- SECTION 4: EXPERIENCE & CASES -->
-    <section id="cases" class="about-section" style="padding-top: 40px;">
-      <div class="about-header-grid">
-        <div class="about-heading-col">
-          <div class="tag-pill-btn">
-            <span class="tag-circle"></span>
-            <span>Experience & Cases</span>
-          </div>
-          <h2 class="section-title">
-            Professional journey <span class="highlight-orange">& achievements</span>
-          </h2>
-        </div>
-        <div class="about-desc-col">
-          <p class="lead-text">
-            Track record across Sri Lanka’s pioneer web TV network, software operations, independent creative ventures,
-            and national school media competitions.
-          </p>
-        </div>
-      </div>
-
-      <div class="services-bento-grid"
-        style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 40px;">
-        <div class="service-card card-light">
-          <h3 class="service-name" style="font-size: 1.25rem; margin-bottom: 8px;">Systems Engineer & Editor</h3>
-          <p style="color: var(--color-orange); font-weight: 600; margin-bottom: 12px; font-size: 0.9rem;">Indusara
-            Media Network / TV (2021 - Present)</p>
-          <p class="service-desc">Managing technical back-end, web development, and streaming servers for Sri Lanka's
-            pioneer Web TV network (indusara.com), maintaining 20+ active sites like radioeka.lk.</p>
-        </div>
-
-        <div class="service-card card-light">
-          <h3 class="service-name" style="font-size: 1.25rem; margin-bottom: 8px;">Software Engineer & Tech Ops</h3>
-          <p style="color: var(--color-orange); font-weight: 600; margin-bottom: 12px; font-size: 0.9rem;">Nysco TV &
-            Radio (April 2022 - Present)</p>
-          <p class="service-desc">Handling software development, broadcast systems engineering, and managing network
-            technical operations.</p>
-        </div>
-
-        <div class="service-card card-light">
-          <h3 class="service-name" style="font-size: 1.25rem; margin-bottom: 8px;">Founder & Lead Creative</h3>
-          <p style="color: var(--color-orange); font-weight: 600; margin-bottom: 12px; font-size: 0.9rem;">Luminex
-            (Present)</p>
-          <p class="service-desc">Leading an independent creative venture focused on high-impact digital solutions,
-            modern web development, and multimedia content.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 5: CONTACT & SKILLS (FORCE INLINE STYLED FOR BLURRED DARK RECTANGLES) -->
-    <section id="contact" class="services-section" style="position: relative; margin-top: 60px; margin-bottom: 60px;">
-      <div class="services-header">
-        <div class="tag-pill-btn">
-          <span class="tag-circle"></span>
-          <span>Contact & Skills</span>
-        </div>
-        <h2 class="section-title services-title">
-          <span class="highlight-orange">Let's build something</span> extraordinary together
-        </h2>
-      </div>
-
-      <div class="about-header-grid"
-        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
-
-        <!-- Left Box: Dark Frosted Glass Rectangle -->
-        <div
-          style="background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 24px; padding: 40px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);">
-          <h3
-            style="font-size: 1.4rem; font-weight: 700; margin-bottom: 20px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
-            Core Leadership & Honors</h3>
-          <ul style="list-style: none; padding: 0; margin: 0;">
-            <li
-              style="margin-bottom: 16px; line-height: 1.7; font-size: 0.95rem; color: rgba(255, 255, 255, 0.95); text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
-              🛰️ <strong style="color: #fff;">Pioneering Broadcaster:</strong> Launched Sri Lanka’s first 24/7
-              continuous live radio broadcast on YouTube (2021–2024).</li>
-            <li
-              style="margin-bottom: 16px; line-height: 1.7; font-size: 0.95rem; color: rgba(255, 255, 255, 0.95); text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
-              🥇 <strong style="color: #fff;">Award-Winning Filmmaker:</strong> Directed short films securing 2nd Place
-              All-Island in School Media Competitions.</li>
-            <li
-              style="margin-bottom: 16px; line-height: 1.7; font-size: 0.95rem; color: rgba(255, 255, 255, 0.95); text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
-              🎶 <strong style="color: #fff;">Music Composer:</strong> Produced an official school tribute song on
-              YouTube using FL Studio & Cubase.</li>
-            <li
-              style="margin-bottom: 0; line-height: 1.7; font-size: 0.95rem; color: rgba(255, 255, 255, 0.95); text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
-              👑 <strong style="color: #fff;">Student Leader:</strong> Leo Club President (2025+), Media & Broadcasting
-              President (2024-2026), Photographic Art President (2023-2026), ICT President (2024-2025) at St. John's
-              College, Nugegoda.</li>
-          </ul>
-        </div>
-
-        <!-- Right Box: Dark Frosted Glass Rectangle -->
-        <div
-          style="background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 24px; padding: 40px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);">
-          <h3
-            style="font-size: 1.4rem; font-weight: 700; margin-bottom: 20px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
-            Get In Touch</h3>
-          <p
-            style="color: rgba(255, 255, 255, 0.85); margin-bottom: 20px; line-height: 1.6; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
-            Have a project in mind, need a robust web platform built, or looking for expert multimedia production?</p>
-          <p style="color: #ffffff; margin-bottom: 12px; text-shadow: 0 2px 4px rgba(0,0,0,0.8);"><strong
-              style="color: #fff;">Email:</strong> devnith@luminex.lk / hello@formix.studio</p>
-          <p style="color: #ffffff; margin-bottom: 25px; text-shadow: 0 2px 4px rgba(0,0,0,0.8);"><strong
-              style="color: #fff;">Location:</strong> Nugegoda, Sri Lanka</p>
-          <a href="mailto:devnith@luminex.lk" class="btn btn-primary">
-            Send an Email
-            <span class="btn-arrow-circle">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="7" y1="17" x2="17" y2="7" />
-                <polyline points="7 7 17 7 17 17" />
-              </svg>
-            </span>
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-  </div>
-
-  <script src="script.js"></script>
+    <!-- Netlify Identity Widget Redirection Fix (Password Reset සාර්ථක වීමට මේක උදව් වේ) -->
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
 </body>
-
 </html>
