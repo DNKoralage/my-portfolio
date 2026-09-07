@@ -1,5 +1,7 @@
 {
-  "logo_text": "Devnith Koralage",
   "heading": "Build digital",
-  "badge": "FULL-STACK WEB DEVELOPER & SYSTEMS ENGINEER"
+  "badge": "FULL-STACK WEB DEVELOPER & SYSTEMS ENGINEER",
+  "hero_image": "/assets/your-image.jpg",
+  "btn_text": "Get Started",
+  "btn_link": "#contact"
 }
