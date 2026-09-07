@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KORALAGE - Admin Dashboard</title>
+    <title>KORALAGE - Constructive Live Admin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
@@ -34,34 +34,40 @@
         .panel-box { background: #ffffff; padding: 25px; border-radius: 8px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
         .panel-box h2 { font-size: 18px; margin-bottom: 15px; color: #0f172a; }
         
-        /* Form Inputs */
-        .form-group { margin-bottom: 15px; }
+        /* Form Inputs & Options */
+        .form-group { margin-bottom: 18px; }
         .form-group label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 6px; color: #475569; text-transform: uppercase; }
-        .form-group input, .form-group textarea { width: 100%; padding: 9px 12px; border: 1px solid #cbd5e1; border-radius: 6px; outline: none; font-size: 13px; }
-        .form-group textarea { height: 90px; resize: vertical; }
-        .btn-primary { background: #3b82f6; color: white; border: none; padding: 10px 18px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 6px; outline: none; font-size: 13px; }
+        .form-row { display: flex; gap: 15px; }
+        .form-row .form-group { flex: 1; }
+        .btn-primary { background: #3b82f6; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; }
         .btn-primary:hover { background: #2563eb; }
+
+        /* Media Uploader Grid */
+        .media-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 15px; }
+        .media-item { border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px; text-align: center; background: #f8fafc; }
+        .media-item img { width: 100%; height: 100px; object-fit: cover; border-radius: 4px; margin-bottom: 8px; }
+        .media-item input { font-size: 11px; padding: 4px; }
     </style>
 </head>
 <body>
     <div class="dashboard-container">
-        <!-- Sidebar (WordPress Style Options) -->
+        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="logo-area">
                 <i class="fa-solid fa-cube"></i>
-                <h2>Koralage Panel</h2>
+                <h2>Constructive Panel</h2>
             </div>
             <ul class="menu">
                 <li class="active" onclick="switchTab('dashboard', this)"><a href="#"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
                 
-                <div class="menu-section-title">Content Management</div>
-                <li onclick="switchTab('posts', this)"><a href="#"><i class="fa-solid fa-thumbtack"></i> Posts <span class="badge">5</span></a></li>
-                <li onclick="switchTab('pages', this)"><a href="#"><i class="fa-solid fa-file-lines"></i> Pages <span class="badge">3</span></a></li>
-                <li onclick="switchTab('media', this)"><a href="#"><i class="fa-solid fa-photo-film"></i> Media Library</a></li>
+                <div class="menu-section-title">Content & Portfolio</div>
+                <li onclick="switchTab('pages', this)"><a href="#"><i class="fa-solid fa-file-lines"></i> Pages & Sections <span class="badge">3</span></a></li>
+                <li onclick="switchTab('media', this)"><a href="#"><i class="fa-solid fa-photo-film"></i> Images & Media Links</a></li>
 
-                <div class="menu-section-title">Appearance & Layout</div>
+                <div class="menu-section-title">Appearance & Links</div>
                 <li onclick="switchTab('customizer', this)"><a href="#"><i class="fa-solid fa-palette"></i> Site Customizer</a></li>
-                <li onclick="switchTab('menus', this)"><a href="#"><i class="fa-solid fa-bars"></i> Menus & Links</a></li>
+                <li onclick="switchTab('menus', this)"><a href="#"><i class="fa-solid fa-link"></i> Navigation & URL Links</a></li>
 
                 <div class="menu-section-title">System</div>
                 <li onclick="switchTab('settings', this)"><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
@@ -73,7 +79,7 @@
             <header class="topbar">
                 <div class="search-box">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search dashboard...">
+                    <input type="text" placeholder="Search options...">
                 </div>
                 <div class="user-profile">
                     <i class="fa-regular fa-bell" style="cursor: pointer; color: #64748b;"></i>
@@ -83,75 +89,104 @@
             </header>
 
             <div class="content-body">
-                <!-- Dashboard Home -->
+                <!-- 1. Dashboard Home -->
                 <div id="tab-dashboard" class="panel-box">
-                    <h2>Welcome to Constructive Dashboard</h2>
-                    <p style="color: #64748b; font-size: 13px; margin-bottom: 20px;">Manage your entire static portfolio site seamlessly using WordPress-like tools.</p>
-                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
-                        <div style="background: #f8fafc; padding: 15px; border-radius: 6px; border: 1px solid #e2e8f0;">
-                            <h4 style="font-size: 14px; color: #3b82f6;">Total Pages</h4>
-                            <p style="font-size: 20px; font-weight: bold; margin-top: 5px;">3</p>
-                        </div>
-                        <div style="background: #f8fafc; padding: 15px; border-radius: 6px; border: 1px solid #e2e8f0;">
-                            <h4 style="font-size: 14px; color: #10b981;">Active Media</h4>
-                            <p style="font-size: 20px; font-weight: bold; margin-top: 5px;">12 Files</p>
-                        </div>
-                        <div style="background: #f8fafc; padding: 15px; border-radius: 6px; border: 1px solid #e2e8f0;">
-                            <h4 style="font-size: 14px; color: #f59e0b;">Theme Status</h4>
-                            <p style="font-size: 14px; font-weight: bold; margin-top: 5px; color: #10b981;">Connected</p>
-                        </div>
-                    </div>
+                    <h2>Live Site Control Center</h2>
+                    <p style="color: #64748b; font-size: 13px; margin-bottom: 20px;">Use the left sidebar sections to directly manage all texts, target link URLs, and portfolio images.</p>
                 </div>
 
-                <!-- Site Customizer Panel -->
-                <div id="tab-customizer" class="panel-box" style="display: none;">
-                    <h2>Site Customizer (Theme Options)</h2>
+                <!-- 2. Pages & Sections Manager (Texts) -->
+                <div id="tab-pages" class="panel-box" style="display: none;">
+                    <h2>Manage Page Texts & Headings</h2>
                     <br>
-                    <form onsubmit="event.preventDefault(); alert('Settings saved successfully!');">
+                    <form onsubmit="event.preventDefault(); alert('Page texts updated successfully!');">
                         <div class="form-group">
-                            <label>Site Title / Brand Name</label>
-                            <input type="text" value="Devnith Koralage">
+                            <label>Hero Main Title Text</label>
+                            <input type="text" id="p-title" value="Build digital experiences that stand out">
                         </div>
                         <div class="form-group">
-                            <label>Main Hero Heading</label>
-                            <input type="text" value="Build digital experiences that stand out">
+                            <label>Hero Subtitle / Badge Text</label>
+                            <input type="text" id="p-sub" value="FULL-STACK WEB DEVELOPER & SYSTEMS ENGINEER">
                         </div>
                         <div class="form-group">
-                            <label>Primary Theme Color</label>
-                            <input type="color" value="#3b82f6" style="height: 40px; padding: 2px;">
+                            <label>About Section Bio</label>
+                            <textarea>Full-stack web developer, systems engineer, and multimedia producer bridging the gap between robust technology and cinematic digital storytelling.</textarea>
                         </div>
-                        <button type="submit" class="btn-primary">Save Changes</button>
+                        <button type="submit" class="btn-primary">Save Text Changes</button>
                     </form>
                 </div>
 
-                <!-- Pages Panel -->
-                <div id="tab-pages" class="panel-box" style="display: none;">
-                    <h2>Pages Manager</h2>
-                    <p style="color: #64748b; font-size: 13px; margin-top: 5px;">Manage portfolio sections: Home, About, Services, Contact.</p>
-                </div>
-
-                <!-- Posts Panel -->
-                <div id="tab-posts" class="panel-box" style="display: none;">
-                    <h2>Blog / Portfolio Posts</h2>
-                    <p style="color: #64748b; font-size: 13px; margin-top: 5px;">Create and manage projects or articles.</p>
-                </div>
-
-                <!-- Media Panel -->
+                <!-- 3. Images & Media Links Manager -->
                 <div id="tab-media" class="panel-box" style="display: none;">
-                    <h2>Media Library</h2>
-                    <p style="color: #64748b; font-size: 13px; margin-top: 5px;">Upload and manage images and assets.</p>
+                    <h2>Portfolio Image Link Manager</h2>
+                    <p style="color: #64748b; font-size: 13px; margin-bottom: 15px;">Update image source paths or external image URLs used across the site.</p>
+                    <form onsubmit="event.preventDefault(); alert('Image links updated successfully!');">
+                        <div class="media-grid">
+                            <div class="media-item">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300" alt="Hero">
+                                <label style="font-size: 10px; margin-bottom: 4px; display:block;">Hero Image URL</label>
+                                <input type="text" value="/assets/hero.jpg">
+                            </div>
+                            <div class="media-item">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300" alt="Profile">
+                                <label style="font-size: 10px; margin-bottom: 4px; display:block;">Profile Image URL</label>
+                                <input type="text" value="/assets/profile.jpg">
+                            </div>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn-primary">Update Image Links</button>
+                    </form>
                 </div>
 
-                <!-- Menus Panel -->
+                <!-- 4. Site Customizer (Colors & Theme) -->
+                <div id="tab-customizer" class="panel-box" style="display: none;">
+                    <h2>Theme Customizer & Colors</h2>
+                    <br>
+                    <form onsubmit="event.preventDefault(); alert('Theme colors saved!');">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Primary Accent Color</label>
+                                <input type="color" value="#3b82f6" style="height: 42px; padding: 2px;">
+                            </div>
+                            <div class="form-group">
+                                <label>Background Skin</label>
+                                <select>
+                                    <option>Light Mode (#f8fafc)</option>
+                                    <option>Dark Mode (#0f172a)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary">Apply Customizer</button>
+                    </form>
+                </div>
+
+                <!-- 5. Navigation & URL Links -->
                 <div id="tab-menus" class="panel-box" style="display: none;">
-                    <h2>Navigation Menus & Links</h2>
-                    <p style="color: #64748b; font-size: 13px; margin-top: 5px;">Configure header navigation links and destination URLs.</p>
+                    <h2>Navigation Destination Links</h2>
+                    <br>
+                    <form onsubmit="event.preventDefault(); alert('Navigation links updated!');">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Call To Action (CTA) Button Text</label>
+                                <input type="text" value="Start a project">
+                            </div>
+                            <div class="form-group">
+                                <label>CTA Button Destination URL / Anchor</label>
+                                <input type="text" value="#contact">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>GitHub Profile Link</label>
+                            <input type="text" value="https://github.com/DNKoralage">
+                        </div>
+                        <button type="submit" class="btn-primary">Save Navigation Links</button>
+                    </form>
                 </div>
 
-                <!-- Settings Panel -->
+                <!-- 6. System Settings -->
                 <div id="tab-settings" class="panel-box" style="display: none;">
-                    <h2>Global Settings</h2>
-                    <p style="color: #64748b; font-size: 13px; margin-top: 5px;">Configure general system options and repository hooks.</p>
+                    <h2>System & Hosting Config</h2>
+                    <p style="color: #64748b; font-size: 13px; margin-top: 5px;">Vercel deployment hooks and connection state: <b style="color: #10b981;">Active</b></p>
                 </div>
             </div>
         </main>
@@ -159,16 +194,12 @@
 
     <script>
         function switchTab(tabId, element) {
-            // Hide all panels
-            const panels = ['dashboard', 'customizer', 'pages', 'posts', 'media', 'menus', 'settings'];
+            const panels = ['dashboard', 'pages', 'media', 'customizer', 'menus', 'settings'];
             panels.forEach(id => {
                 document.getElementById('tab-' + id).style.display = 'none';
             });
-            
-            // Show selected panel
             document.getElementById('tab-' + tabId).style.display = 'block';
 
-            // Update active menu class
             document.querySelectorAll('.menu li').forEach(li => li.classList.remove('active'));
             element.classList.add('active');
         }
