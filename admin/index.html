@@ -3,152 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Constructive - Admin Dashboard</title>
+    <title>KORALAGE - Admin Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background-color: #f8fafc;
-            color: #334155;
-        }
-        .dashboard-container {
-            display: flex;
-            height: 100vh;
-            overflow: hidden;
-        }
-        .sidebar {
-            width: 260px;
-            background: #ffffff;
-            border-right: 1px solid #e2e8f0;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-        }
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #0f172a;
-            margin-bottom: 30px;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f8fafc; color: #334155; }
+        .dashboard-container { display: flex; height: 100vh; overflow: hidden; }
+        .sidebar { width: 260px; background: #ffffff; border-right: 1px solid #e2e8f0; display: flex; flex-direction: column; padding: 20px; }
+        .logo-area { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: bold; color: #0f172a; margin-bottom: 30px; }
         .logo-area i { color: #7c3aed; }
         .menu { list-style: none; flex-grow: 1; }
-        .menu li {
-            padding: 10px 12px;
-            border-radius: 8px;
-            margin-bottom: 5px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .menu li.active, .menu li:hover {
-            background: #f1f5f9;
-            color: #7c3aed;
-        }
-        .menu li a {
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 14px;
-        }
-        .badge {
-            margin-left: auto;
-            background: #e2e8f0;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 11px;
-        }
-        .badge.red { background: #fee2e2; color: #ef4444; }
-        .main-content {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            overflow-y: auto;
-        }
-        .topbar {
-            height: 70px;
-            background: #ffffff;
-            border-bottom: 1px solid #e2e8f0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 30px;
-        }
-        .search-box {
-            display: flex;
-            align-items: center;
-            background: #f1f5f9;
-            padding: 8px 15px;
-            border-radius: 8px;
-            width: 250px;
-            gap: 10px;
-        }
+        .menu li { padding: 10px 12px; border-radius: 8px; margin-bottom: 5px; cursor: pointer; transition: 0.2s; }
+        .menu li.active, .menu li:hover { background: #f1f5f9; color: #7c3aed; }
+        .menu li a { text-decoration: none; color: inherit; display: flex; align-items: center; gap: 12px; font-size: 14px; }
+        .badge { margin-left: auto; background: #fee2e2; color: #ef4444; padding: 2px 8px; border-radius: 12px; font-size: 11px; }
+        .main-content { flex-grow: 1; display: flex; flex-direction: column; overflow-y: auto; }
+        .topbar { height: 70px; background: #ffffff; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between; padding: 0 30px; }
+        .search-box { display: flex; align-items: center; background: #f1f5f9; padding: 8px 15px; border-radius: 8px; width: 250px; gap: 10px; }
         .search-box input { border: none; background: transparent; outline: none; width: 100%; }
         .user-profile { display: flex; align-items: center; gap: 15px; }
         .user-profile img { width: 35px; height: 35px; border-radius: 50%; }
         .stats-overview { padding: 30px; }
         .card-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        .info-card {
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
-            display: flex;
-            gap: 15px;
-            cursor: pointer;
-        }
-        .doc-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-        }
+        .info-card { background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; display: flex; gap: 15px; cursor: pointer; }
+        .doc-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; }
         .doc-icon.blue { background: #3b82f6; }
+        .doc-icon.orange { background: #f97316; }
         .info-card h4 { font-size: 14px; margin-bottom: 5px; }
         .info-card p { font-size: 11px; color: #64748b; }
-        .editor-card {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
-            max-width: 600px;
-        }
+        .editor-card { background: #ffffff; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; max-width: 700px; }
         .form-group { margin-bottom: 20px; }
-        .form-group label {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #475569;
-        }
-        .form-group input {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            outline: none;
-            font-size: 14px;
-        }
-        .save-btn {
-            background: #7c3aed;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-        }
+        .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px; color: #475569; }
+        .form-group input, .form-group select { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 6px; outline: none; font-size: 14px; }
+        .form-row { display: flex; gap: 15px; }
+        .form-row .form-group { flex: 1; }
+        .save-btn { background: #7c3aed; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; }
         .save-btn:hover { background: #6d28d9; }
     </style>
 </head>
@@ -162,7 +51,7 @@
             </div>
             <ul class="menu">
                 <li class="active" onclick="showDashboard()"><a href="#"><i class="fa-solid fa-house"></i> Dashboard</a></li>
-                <li onclick="showEditor()"><a href="#"><i class="fa-solid fa-file-lines"></i> Home Customizer <span class="badge red">Edit</span></a></li>
+                <li onclick="showEditor()"><a href="#"><i class="fa-solid fa-file-lines"></i> Site Customizer <span class="badge">Edit</span></a></li>
             </ul>
         </aside>
 
@@ -186,35 +75,59 @@
                     <div class="info-card" onclick="showEditor()">
                         <div class="doc-icon blue"><i class="fa-regular fa-file"></i></div>
                         <div>
-                            <h4>Home & Hero Customizer</h4>
-                            <p>Click here to edit site titles, text, images, and links.</p>
+                            <h4>Full Site Customizer</h4>
+                            <p>Edit Texts, Images, Links, and Colors in real-time.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Editor View -->
+            <!-- Editor View (Forms for Texts, Images, Links, Colors) -->
             <section id="editor-view" class="stats-overview" style="display: none;">
                 <div class="editor-card">
-                    <h3>Edit Home Page Content</h3>
+                    <h3>WordPress-Style Live Customizer</h3>
+                    <br>
                     <form id="content-form">
+                        <!-- Colors & Logo -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Logo Text</label>
+                                <input type="text" id="input-logo" value="Devnith Koralage">
+                            </div>
+                            <div class="form-group">
+                                <label>Theme Primary Color</label>
+                                <input type="color" id="input-color" value="#7c3aed" style="height: 42px; padding: 2px;">
+                            </div>
+                        </div>
+
+                        <!-- Headings & Badges -->
                         <div class="form-group">
-                            <label>Main Heading</label>
+                            <label>Main Heading (Text)</label>
                             <input type="text" id="input-heading" value="Build digital experiences that stand out">
                         </div>
                         <div class="form-group">
-                            <label>Badge / Subheading</label>
+                            <label>Badge / Subheading (Text)</label>
                             <input type="text" id="input-badge" value="FULL-STACK WEB DEVELOPER & SYSTEMS ENGINEER">
                         </div>
+
+                        <!-- Images & Links -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Hero Image URL (Image)</label>
+                                <input type="text" id="input-image" value="/assets/hero.jpg">
+                            </div>
+                            <div class="form-group">
+                                <label>Button Link (URL)</label>
+                                <input type="text" id="input-link" value="#contact">
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label>Button Text</label>
-                            <input type="text" id="input-btn-text" value="Start a project">
+                            <input type="text" id="input-btn" value="Start a project">
                         </div>
-                        <div class="form-group">
-                            <label>Button Link</label>
-                            <input type="text" id="input-btn-link" value="#contact">
-                        </div>
-                        <button type="button" class="save-btn" onclick="saveContent()">Save Changes</button>
+
+                        <button type="button" class="save-btn" onclick="saveChanges()">Publish Changes</button>
                     </form>
                 </div>
             </section>
@@ -230,22 +143,9 @@
             document.getElementById('dashboard-view').style.display = 'block';
             document.getElementById('editor-view').style.display = 'none';
         }
-        function saveContent() {
-            alert('Changes saved successfully!');
+        function saveChanges() {
+            alert('All changes (Texts, Images, Links, Colors) have been saved successfully!');
         }
     </script>
 </body>
 </html>
-<script>
-    function showEditor() {
-        document.getElementById('dashboard-view').style.display = 'none';
-        document.getElementById('editor-view').style.display = 'block';
-    }
-    function showDashboard() {
-        document.getElementById('dashboard-view').style.display = 'block';
-        document.getElementById('editor-view').style.display = 'none';
-    }
-    function saveContent() {
-        alert('Changes saved successfully!');
-    }
-</script>
